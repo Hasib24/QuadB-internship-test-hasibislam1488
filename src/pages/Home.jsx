@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div className='container'>
             {
-                shows.map(show =><Card show={show} key={show.id} className='my_card'></Card>)
+                shows.map(show =><Card show={show} key={show.show.id} className='my_card'></Card>)
             }
 
             
