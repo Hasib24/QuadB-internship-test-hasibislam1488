@@ -1,0 +1,37 @@
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.my_card{
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+
+}
+.my_card:hover{
+    box-shadow: 5px 5px 5px rgba(168, 168, 168, 0.3);
+}
+
+
+.my_card_info{
+    display: flex;
+    /* border: 1px solid; */
+    align-items: center;
+    justify-content: space-between;
+}
+.img{
+    width: 100%;
+}
+
+.btn{
+    border: 1px solid rgb(100, 106, 112);
+    border-radius: 5px;
+}
+.btn:hover{
+    border: 1px solid rgb(100, 106, 112);
+    background: #f0f0f0;
+}
