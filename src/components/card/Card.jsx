@@ -2,16 +2,16 @@ import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
 
-const Card = ({show}) => {
-    const { name, image, language } = show.show;
+const Card = ({aShow}) => {
+    const { show } = aShow;
+    const { name, image, language } = show;
     console.log(language);
 
     const navigate = useNavigate()
-    
-
 
     const handleClick=(show)=>{
-        navigate('/showsammary')
+        const id = show.id;
+        navigate(`/showsammary/${id}`)
     }
 
     return (
@@ -20,7 +20,7 @@ const Card = ({show}) => {
                     <h3>{name} </h3>
                     <div className='my_card_info'>
                         <span>Rating : 5.4</span>                     
-                        <button onClick={()=>{handleClick()}}  className='btn'>Details</button>
+                        <button onClick={()=>{handleClick(show)}}  className='btn'>Details</button>
                         
                     </div>
                 </div>
