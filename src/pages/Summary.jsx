@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom';
 import ContextProvider, { ShowContex } from '../context/ContextProvider';
 
 const Summary = () => {
-    const param = useParams()
-    console.log(param);
+    const {id} = useParams()
+    console.log(id);
 
-    const {shows} = useContext(ShowContex)
+    const { shows } = useContext(ShowContex)
 
-    console.log(shows);
+    const { show } = shows.filter(aShow =>aShow.show.id == id)[0]
+    
 
     return (
         <div>

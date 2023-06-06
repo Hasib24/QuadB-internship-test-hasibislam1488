@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 const Card = ({aShow}) => {
     const { show } = aShow;
     const { name, image, language } = show;
-    console.log(language);
+
 
     const navigate = useNavigate()
 
