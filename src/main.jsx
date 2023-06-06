@@ -5,7 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { RouterProvider } from 'react-router-dom'
 import router from './routes/Router'
+import ContextProvider from './context/ContextProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}></RouterProvider>
+  <ContextProvider>
+    <RouterProvider router={router}></RouterProvider>
+  </ContextProvider>
 )

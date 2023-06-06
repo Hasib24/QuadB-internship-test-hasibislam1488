@@ -1,31 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './home.css'
 import Card from '../components/card/Card';
+import { ShowContex } from '../context/ContextProvider';
 
 
 const Home = () => {
-    const [shows, setShows] = useState([])
-
-    useEffect(()=>{
-        fetch('https://api.tvmaze.com/search/shows?q=all')
-        .then(res => res.json())
-        .then(data => setShows(data))
-    }, [])
+    const {shows} = useContext(ShowContex)
 
     return (
         <div className='container'>
             {
                 shows.map(aShow =><Card aShow={aShow} key={aShow.show.id} className='my_card'></Card>)
             }
-
-            
-
-
-                
-
-
-
-
         </div>
     );
 };
