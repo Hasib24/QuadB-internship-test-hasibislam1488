@@ -1,6 +1,5 @@
-import { key } from 'localforage';
 import React from 'react';
-import BookingRow from './BookingRow';
+import BookingRow from '../booking/BookingRow';
 
 
 const Bookings = () => {

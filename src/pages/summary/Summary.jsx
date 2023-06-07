@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ShowContex } from '../context/ContextProvider';
+import { ShowContex } from '../../context/ContextProvider';
 import swal from 'sweetalert';
 
 const Summary = () => {

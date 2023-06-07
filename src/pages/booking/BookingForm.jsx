@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ShowContex } from '../context/ContextProvider';
+import { ShowContex } from '../../context/ContextProvider';
 
 
 const BookingForm = () => {

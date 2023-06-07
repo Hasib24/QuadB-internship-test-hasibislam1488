@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './home.css'
-import Card from '../components/card/Card';
-import { ShowContex } from '../context/ContextProvider';
+import Card from '../../components/card/Card';
+import { ShowContex } from '../../context/ContextProvider';
 
 
 const Home = () => {
