@@ -23,7 +23,21 @@ const Summary = () => {
                 console.log(`not exist`);
                 navigate(`/bookings/form/${show.id}`)
             }else{
-                swal("Stop!", "You dlready dooked this show!", "warning");
+                // swal("Stop!", "You dlready dooked this show!", "warning");
+                swal({
+                    title: "Stop !",
+                    text: `You dlready dooked ${show.name}!`,
+                    icon: "warning",
+                    buttons:  ["Cancle", "See Bookings"],
+                    dangerMode: true,
+                  })
+                  .then((confirm) => {
+                    if (confirm) {
+                      navigate('/bookings')
+                    } else {
+                      console.log(`cancled`);
+                    }
+                  });
             }
             return
         }

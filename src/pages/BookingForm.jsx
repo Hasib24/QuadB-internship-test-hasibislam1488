@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ShowContex } from '../context/ContextProvider';
 
 
 const BookingForm = () => {
 
+  const navigate = useNavigate()
   const { bookId } = useParams()
 
   const { shows } = useContext(ShowContex)
@@ -62,10 +63,35 @@ const BookingForm = () => {
 
     if(lastBookingData){
       bookingDataArray = [...lastBookingData, bookigData]
-      
       localStorage.setItem('bookingData', JSON.stringify(bookingDataArray))
+
+      //sweet alart 
+      swal({
+        title: "Success !",
+        text: `You successfuly booked a tiket for ${show.name}!`,
+        icon: "success",
+        buttons:  ["Go Home", "See Bookings"],
+        dangerMode: true,
+      })
+      .then((confirm) => {
+        if (confirm) {
+          theForm.reset()
+          navigate('/bookings')
+        } else {
+          theForm.reset()
+          navigate('/')
+        }
+      });
+    }else{
+
+      localStorage.setItem('bookingData', JSON.stringify(bookingDataArray))
+
+      //sweet alart
+
+
+
     }
-    localStorage.setItem('bookingData', JSON.stringify(bookingDataArray))
+
 
 
 
