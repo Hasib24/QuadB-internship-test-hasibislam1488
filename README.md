@@ -10,3 +10,10 @@
 - [react-bootstrap]
 - [sweet-alart]
 
+### Key Features I have implemented
+-Book a show for one time
+-Alart on secondtime click to book
+-No reload
+-Responsive
+-Use context api
+
