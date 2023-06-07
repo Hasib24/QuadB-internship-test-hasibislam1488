@@ -13,6 +13,14 @@
     
  }
 
+ @media only screen and (min-width: 568px) and (max-width: 991px) {
+    .sm_card{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+  }
+
+
 .sm_img{
     width: 100%;
 }
@@ -68,3 +76,5 @@
 .td{
     padding-left: 5px;
 }
+
+
