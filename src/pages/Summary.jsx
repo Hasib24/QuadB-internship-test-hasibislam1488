@@ -14,7 +14,7 @@ const Summary = () => {
 
     const handleBookings =()=>{
         let bookings = [show.id];
-        const booked = localStorage.getItem('shows')
+        const booked = localStorage.getItem('bookedShowsId')
         if(booked){
             let lastBookings = JSON.parse(booked);
 

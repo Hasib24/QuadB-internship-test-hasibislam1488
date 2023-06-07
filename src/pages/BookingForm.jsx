@@ -21,17 +21,17 @@ const BookingForm = () => {
 
     //copied from Summary.jsx
 
-    const booked = localStorage.getItem('shows')
+    const booked = localStorage.getItem('bookedShowsId')
     if(booked){
 
       let lastBookings = JSON.parse(booked);
       let bookings = [...lastBookings, show.id]
-      localStorage.setItem('shows', JSON.stringify(bookings))
+      localStorage.setItem('bookedShowsId', JSON.stringify(bookings))
     }else{
       let bookings = [ show.id]
-      localStorage.setItem('shows', JSON.stringify(bookings))
+      localStorage.setItem('bookedShowsId', JSON.stringify(bookings))
     }
-    //tost success
+    //TODO : tost success
        
     
 
@@ -56,7 +56,16 @@ const BookingForm = () => {
       email
     }
 
-    console.log(bookigData);
+    const lastBookingData = JSON.parse(localStorage.getItem('bookingData'))
+
+    let bookingDataArray = [bookigData]
+
+    if(lastBookingData){
+      bookingDataArray = [...lastBookingData, bookigData]
+      
+      localStorage.setItem('bookingData', JSON.stringify(bookingDataArray))
+    }
+    localStorage.setItem('bookingData', JSON.stringify(bookingDataArray))
 
 
 
