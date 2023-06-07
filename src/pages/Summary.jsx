@@ -6,11 +6,36 @@ const Summary = () => {
 
     //TODO : fix error for missing id
     const {id} = useParams()
-    console.log(id);
-
+  
     const { shows } = useContext(ShowContex)
-
     const { show } = shows.filter(aShow =>aShow.show.id == id)[0]
+
+
+    const handleBookings =()=>{
+        let bookings = [show.id];
+        const booked = localStorage.getItem('shows')
+        if(booked){
+            let lastBookings = JSON.parse(booked);
+            
+            let isAxist = lastBookings.find(aid => aid == show.id)
+            if(!isAxist){
+                console.log(`not exist`);
+                bookings = [...lastBookings, show.id]
+                localStorage.setItem('shows', JSON.stringify(bookings))
+                //tost success
+            }else{
+                console.log(`number ase`);
+                //tost alerady exist
+            }
+            return
+        }
+
+
+        localStorage.setItem('shows', JSON.stringify(bookings))
+     
+        
+
+    }
     
 
     return (
@@ -27,7 +52,7 @@ const Summary = () => {
                     <div>Type : {show.type}</div>
                     <div>Language : {show.language}</div>
                     <div>
-                        <button className='btn sm_btn'>Boke a Ticket</button>
+                        <button onClick={()=>handleBookings()} className='btn sm_btn'>Book a Ticket</button>
                     </div>
                 </div>
 
