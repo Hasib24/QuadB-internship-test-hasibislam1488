@@ -8,7 +8,7 @@ const Home = () => {
     const {shows} = useContext(ShowContex)
 
     return (
-        <div className='container'>
+        <div className='shows'>
             {
                 shows.map(aShow =><Card aShow={aShow} key={aShow.show.id} className='my_card'></Card>)
             }

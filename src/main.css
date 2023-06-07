@@ -1,0 +1,36 @@
+.sm{
+    display: grid;
+    justify-content: center;
+    padding: 10px 30px;
+}
+
+.sm_card{
+    padding: 10px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    
+ }
+
+.sm_img{
+    width: 100%;
+}
+.sm_name_language{
+    padding-left: 20px;
+}
+.sm_btn{
+    margin-top: 15px;
+}
+
+/*--------------------
+    common css 
+--------------------- */
+.btn{
+    border: 1px solid rgb(100, 106, 112);
+    border-radius: 5px;
+}
+.btn:hover{
+    border: 1px solid rgb(100, 106, 112);
+    background: #f0f0f0;
+}
