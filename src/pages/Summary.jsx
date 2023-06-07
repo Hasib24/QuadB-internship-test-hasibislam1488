@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ShowContex } from '../context/ContextProvider';
+import swal from 'sweetalert';
 
 const Summary = () => {
 
@@ -17,27 +18,16 @@ const Summary = () => {
         const booked = localStorage.getItem('bookedShowsId')
         if(booked){
             let lastBookings = JSON.parse(booked);
-
             let isAxist = lastBookings.find(aid => aid == show.id)
             if(!isAxist){
                 console.log(`not exist`);
                 navigate(`/bookings/form/${show.id}`)
-                // bookings = [...lastBookings, show.id]
-                // localStorage.setItem('shows', JSON.stringify(bookings))
-                //tost success
             }else{
-                console.log(`number ase`);
-                //tost alerady exist
+                swal("Stop!", "You dlready dooked this show!", "warning");
             }
             return
         }
-
-
-        // localStorage.setItem('shows', JSON.stringify(bookings))
         navigate(`/bookings/form/${show.id}`)
-     
-        
-
     }
     
 
