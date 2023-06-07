@@ -62,8 +62,7 @@ const BookingForm = () => {
     let bookingDataArray = [bookigData]
 
     if(lastBookingData){
-      bookingDataArray = [...lastBookingData, bookigData]
-      localStorage.setItem('bookingData', JSON.stringify(bookingDataArray))
+
 
       //sweet alart 
       swal({
@@ -82,6 +81,11 @@ const BookingForm = () => {
           navigate('/')
         }
       });
+
+      //Sroring at local storege
+      bookingDataArray = [...lastBookingData, bookigData]
+      localStorage.setItem('bookingData', JSON.stringify(bookingDataArray))
+
     }else{
 
       localStorage.setItem('bookingData', JSON.stringify(bookingDataArray))
