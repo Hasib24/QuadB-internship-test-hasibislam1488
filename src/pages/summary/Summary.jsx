@@ -5,11 +5,18 @@ import swal from 'sweetalert';
 
 const Summary = () => {
 
-    //TODO : fix error for missing id
+    //TODO : fix error for browser refresh
+    //FIXED
     const {id} = useParams()
+
+    console.log(id);
+
     const navigate = useNavigate()
   
-    const { shows } = useContext(ShowContex)
+    const { shows, loading, setLoading } = useContext(ShowContex)
+    if(loading){
+        return <div>Loading...</div>
+    }
     const { show } = shows.filter(aShow =>aShow.show.id == id)[0]
 
 
