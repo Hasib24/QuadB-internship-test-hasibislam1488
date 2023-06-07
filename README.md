@@ -11,9 +11,9 @@
 - [sweet-alart]
 
 ### Key Features I have implemented
--Book a show for one time
--Alart on secondtime click to book
--No reload
--Responsive
--Use context api
+1.Book a show for one time
+2.Alart on secondtime click to book
+3.No reload
+4.Responsive
+5.Use context api
 
