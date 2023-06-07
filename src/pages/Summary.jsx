@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import ContextProvider, { ShowContex } from '../context/ContextProvider';
+import { ShowContex } from '../context/ContextProvider';
 
 const Summary = () => {
 
@@ -16,7 +16,7 @@ const Summary = () => {
         const booked = localStorage.getItem('shows')
         if(booked){
             let lastBookings = JSON.parse(booked);
-            
+
             let isAxist = lastBookings.find(aid => aid == show.id)
             if(!isAxist){
                 console.log(`not exist`);
