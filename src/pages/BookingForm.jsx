@@ -1,12 +1,42 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useParams } from 'react-router-dom';
+import { ShowContex } from '../context/ContextProvider';
 
 
 const BookingForm = () => {
 
+  const { bookId } = useParams()
+
+  const { shows } = useContext(ShowContex)
+  const { show } = shows.filter(aShow =>aShow.show.id == bookId)[0]
+
+  console.log(show)
+
   const handleSubmit =(e)=>{
     e.preventDefault()
+
+
+
+    //copied from Summary.jsx
+
+    const booked = localStorage.getItem('shows')
+    if(booked){
+
+      let lastBookings = JSON.parse(booked);
+      let bookings = [...lastBookings, show.id]
+      localStorage.setItem('shows', JSON.stringify(bookings))
+    }else{
+      let bookings = [ show.id]
+      localStorage.setItem('shows', JSON.stringify(bookings))
+    }
+    //tost success
+       
+    
+
+    //form control
+
     console.log(`confirm btn clicked`);
     const theForm = e.target;
 
@@ -27,6 +57,9 @@ const BookingForm = () => {
     }
 
     console.log(bookigData);
+
+
+
   }
 
 
@@ -37,14 +70,14 @@ const BookingForm = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Show Name</Form.Label>
-                  <Form.Control type="text" name='showName' disabled/>
+                  <Form.Control type="text" defaultValue={show.name} name='showName' disabled/>
 
                 </Form.Group>
 
                 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Show ID</Form.Label>
-                  <Form.Control type="text" name='showId' disabled/>
+                  <Form.Control type="text" defaultValue={show.id} name='showId' disabled/>
 
                 </Form.Group>
 

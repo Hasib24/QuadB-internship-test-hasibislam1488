@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ShowContex } from '../context/ContextProvider';
 
 const Summary = () => {
 
     //TODO : fix error for missing id
     const {id} = useParams()
+    const navigate = useNavigate()
   
     const { shows } = useContext(ShowContex)
     const { show } = shows.filter(aShow =>aShow.show.id == id)[0]
@@ -20,8 +21,9 @@ const Summary = () => {
             let isAxist = lastBookings.find(aid => aid == show.id)
             if(!isAxist){
                 console.log(`not exist`);
-                bookings = [...lastBookings, show.id]
-                localStorage.setItem('shows', JSON.stringify(bookings))
+                navigate(`/bookings/form/${show.id}`)
+                // bookings = [...lastBookings, show.id]
+                // localStorage.setItem('shows', JSON.stringify(bookings))
                 //tost success
             }else{
                 console.log(`number ase`);
@@ -31,7 +33,8 @@ const Summary = () => {
         }
 
 
-        localStorage.setItem('shows', JSON.stringify(bookings))
+        // localStorage.setItem('shows', JSON.stringify(bookings))
+        navigate(`/bookings/form/${show.id}`)
      
         
 
